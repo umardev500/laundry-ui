@@ -1,0 +1,53 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Keystore files (keep your signing keys private)
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# Android generated files
+captures/
+output.json
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+*.log
+
+# Android test outputs
+outputs/
+test-results/
+reports/
+
+# App module build outputs (explicit)
+app/build/
+app/release/
+app/debug/
+**/app/build/
+**/app/release/
+**/app/debug/
+
+# VSCode (if you ever open the project there)
+.vscode/
+
+# ===========================
+# Optional: ignore user env
+# ===========================
+.env
+.env.local
