@@ -1,4 +1,4 @@
-package com.umar.laundry.ui.theme
+package com.umar.laundry.core.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
