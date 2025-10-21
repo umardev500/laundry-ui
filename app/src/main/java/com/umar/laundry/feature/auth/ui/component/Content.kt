@@ -10,11 +10,16 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.LocalNavigator
+import cafe.adriel.voyager.navigator.currentOrThrow
+import com.umar.laundry.Routes
 import com.umar.laundry.core.ui.components.atoms.AppButton
 import com.umar.laundry.core.ui.components.atoms.ButtonSize
 
 @Composable
 fun Content() {
+    val navigator = LocalNavigator.currentOrThrow
+
     Scaffold { padding ->
         Column(
             modifier = Modifier
@@ -29,7 +34,7 @@ fun Content() {
             ForgotPassword()
             Spacer(Modifier.height(24.dp))
             AppButton(
-                onClick = { /* TODO */ },
+                onClick = { navigator.replaceAll(Routes.profile()) },
                 modifier = Modifier.fillMaxWidth(),
                 text = "Login",
                 size = ButtonSize.Large
