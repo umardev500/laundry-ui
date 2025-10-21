@@ -40,7 +40,6 @@ fun AppButton(
     ) {
         Text(
             text = text,
-            color = Color.White,
             fontSize = size.textSize.sp
         )
     }

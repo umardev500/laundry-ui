@@ -1,6 +1,5 @@
 package com.umar.laundry.feature.auth.ui.component
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.umar.laundry.core.ui.components.atoms.AppButton
 import com.umar.laundry.core.ui.components.atoms.ButtonSize
@@ -21,7 +19,6 @@ fun Content() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White)
                 .padding(padding)
                 .padding(horizontal = 24.dp),
         ) {
