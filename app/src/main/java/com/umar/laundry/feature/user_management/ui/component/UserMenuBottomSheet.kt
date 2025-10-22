@@ -43,15 +43,21 @@ fun UserMenuBottomSheet(
             ) {
                 MenuItem(text = "Edit", icon = R.drawable.ic_edit_outlined, onClick = onEditClick)
 
-                val suspendText = if (user.status == UserStatus.SUSPENDED) "Unsuspend" else "Suspend"
-                val suspendIcon = if (user.status == UserStatus.SUSPENDED) R.drawable.ic_check_circle_unread_outlined else R.drawable.ic_remove_moderator_outlined
+                val suspendText =
+                    if (user.status == UserStatus.SUSPENDED) "Unsuspend" else "Suspend"
+                val suspendIcon =
+                    if (user.status == UserStatus.SUSPENDED) R.drawable.ic_check_circle_unread_outlined else R.drawable.ic_remove_moderator_outlined
                 MenuItem(
                     text = suspendText,
                     icon = suspendIcon,
                     onClick = onSuspendClick
                 )
 
-                MenuItem(text = "Delete", icon = R.drawable.ic_delete_outlined, onClick = onDeleteClick)
+                MenuItem(
+                    text = "Delete",
+                    icon = R.drawable.ic_delete_outlined,
+                    onClick = onDeleteClick
+                )
             }
         }
     }

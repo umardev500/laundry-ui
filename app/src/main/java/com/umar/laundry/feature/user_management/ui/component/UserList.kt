@@ -23,7 +23,9 @@ fun UserList(
     onQueryChange: (String) -> Unit,
     onClearQuery: () -> Unit,
     onItemClick: (User) -> Unit,
-    onMenuClick: (User) -> Unit
+    onEditClick: (User) -> Unit,
+    onDeleteClick: (User) -> Unit,
+    onSuspendClick: (User) -> Unit,
 ) {
     LazyColumn {
         item {
@@ -69,7 +71,9 @@ fun UserList(
             UserListItem(
                 user = user,
                 onClick = { onItemClick(user) },
-                onMenuClick = { onMenuClick(user) }
+                onEditClick = { onEditClick(user) },
+                onDeleteClick = { onDeleteClick(user) },
+                onSuspendClick = { onSuspendClick(user) }
             )
         }
     }

@@ -18,12 +18,19 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,13 +43,21 @@ import com.umar.laundry.R
 import com.umar.laundry.core.ui.components.atoms.UserAvatar
 import com.umar.laundry.feature.user_management.domain.model.User
 import com.umar.laundry.feature.user_management.domain.model.UserStatus
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun UserListItem(
     user: User,
     onClick: () -> Unit,
-    onMenuClick: () -> Unit
+    onEditClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+    onSuspendClick: () -> Unit,
 ) {
+    var showBottomSheet by rememberSaveable { mutableStateOf(false) }
+    val scope = rememberCoroutineScope()
+    val bottomSheetState = rememberModalBottomSheetState()
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -98,7 +113,7 @@ fun UserListItem(
 
             if (user.status != UserStatus.DELETED) {
                 IconButton(
-                    onClick = onMenuClick,
+                    onClick = { showBottomSheet = true },
                     modifier = Modifier
                         .size(24.dp),
                 ) {
@@ -110,6 +125,40 @@ fun UserListItem(
                 }
             }
         }
+    }
+
+    if (showBottomSheet) {
+        UserMenuBottomSheet(
+            user = user,
+            sheetState = bottomSheetState,
+            onDismiss = {
+                scope.launch {
+                    bottomSheetState.hide()
+                    showBottomSheet = false
+                }
+            },
+            onEditClick = {
+                onEditClick()
+                scope.launch {
+                    bottomSheetState.hide()
+                    showBottomSheet = false
+                }
+            },
+            onSuspendClick = {
+                onSuspendClick()
+                scope.launch {
+                    bottomSheetState.hide()
+                    showBottomSheet = false
+                }
+            },
+            onDeleteClick = {
+                onDeleteClick()
+                scope.launch {
+                    bottomSheetState.hide()
+                    showBottomSheet = false
+                }
+            }
+        )
     }
 }
 
