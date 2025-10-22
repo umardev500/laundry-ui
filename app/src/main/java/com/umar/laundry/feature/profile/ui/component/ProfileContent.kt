@@ -26,7 +26,6 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.umar.laundry.R
 import com.umar.laundry.Routes
 import com.umar.laundry.core.ui.components.atoms.AppButton
-import com.umar.laundry.core.ui.utils.withClickSound
 
 enum class UserRole {
     CUSTOMER, ADMIN
@@ -95,7 +94,7 @@ fun ProfileContent(userRole: UserRole) {
             Spacer(modifier = Modifier.height(32.dp))
 
             AppButton(
-                onClick = { showLogoutDialog = true }.withClickSound(haptic = true),
+                onClick = { showLogoutDialog = true },
                 modifier = Modifier.fillMaxWidth(),
                 text = "Logout",
             )
