@@ -89,8 +89,8 @@ fun AddressListContent(
                     items(uiState.addresses) { address ->
                         AddressItem(
                             address = address,
-                            onEditClick = { onEditAddress(address) },
-                            onMenuClick = { onMenuClick(address) },
+                            onEditClick = { onEditAddress(address) }.withClickSound(),
+                            onMenuClick = { onMenuClick(address) }.withClickSound(),
                         )
                     }
                 }
@@ -105,8 +105,8 @@ fun AddressListContent(
         onEditClick = {
             uiState.selectedAddressForMenu?.let { onEditAddress(it) }
             onDismissMenu()
-        },
-        onDeleteClick = onDeleteAddress,
-        onSetPrimaryClick = onSetPrimaryAddress
+        }.withClickSound(),
+        onDeleteClick = onDeleteAddress.withClickSound(),
+        onSetPrimaryClick = onSetPrimaryAddress.withClickSound()
     )
 }
