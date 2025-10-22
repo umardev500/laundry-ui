@@ -15,6 +15,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.umar.laundry.Routes
 import com.umar.laundry.core.ui.components.atoms.AppButton
 import com.umar.laundry.core.ui.components.atoms.ButtonSize
+import com.umar.laundry.core.ui.utils.withClickSound
 
 @Composable
 fun Content() {
@@ -34,7 +35,7 @@ fun Content() {
             ForgotPassword()
             Spacer(Modifier.height(24.dp))
             AppButton(
-                onClick = { navigator.replaceAll(Routes.profile()) },
+                onClick = { navigator.replaceAll(Routes.profile()) }.withClickSound(),
                 modifier = Modifier.fillMaxWidth(),
                 text = "Login",
                 size = ButtonSize.Large

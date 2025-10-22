@@ -8,10 +8,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.umar.laundry.core.ui.utils.withClickSound
 
 enum class ButtonSize(
     val height: Int,
@@ -29,6 +27,7 @@ fun AppButton(
     text: String,
     onClick: () -> Unit,
     size: ButtonSize = ButtonSize.Medium,
+    enabled: Boolean = true,
 ) {
     Button(
         modifier = modifier.height(size.height.dp),
@@ -36,7 +35,8 @@ fun AppButton(
             containerColor = MaterialTheme.colorScheme.primary
         ),
         shape = RoundedCornerShape(size.cornerRadius.dp),
-        onClick = onClick.withClickSound(haptic = true)
+        onClick = onClick,
+        enabled = enabled
     ) {
         Text(
             text = text,

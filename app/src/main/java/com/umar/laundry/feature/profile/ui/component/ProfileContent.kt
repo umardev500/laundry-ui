@@ -26,6 +26,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import com.umar.laundry.R
 import com.umar.laundry.Routes
 import com.umar.laundry.core.ui.components.atoms.AppButton
+import com.umar.laundry.core.ui.utils.withClickSound
 
 enum class UserRole {
     CUSTOMER, ADMIN
@@ -47,14 +48,14 @@ fun ProfileContent(userRole: UserRole) {
                     onClick = {
                         showLogoutDialog = false
                         navigator.replaceAll(Routes.login())
-                    }
+                    }.withClickSound()
                 ) {
                     Text("Logout")
                 }
             },
             dismissButton = {
                 TextButton(
-                    onClick = { showLogoutDialog = false }
+                    onClick = { showLogoutDialog = false }.withClickSound()
                 ) {
                     Text("Cancel")
                 }
@@ -94,7 +95,7 @@ fun ProfileContent(userRole: UserRole) {
             Spacer(modifier = Modifier.height(32.dp))
 
             AppButton(
-                onClick = { showLogoutDialog = true },
+                onClick = { showLogoutDialog = true }.withClickSound(),
                 modifier = Modifier.fillMaxWidth(),
                 text = "Logout",
             )
