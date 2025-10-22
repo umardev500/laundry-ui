@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -107,7 +108,8 @@ internal fun AddressForm(
                     value = uiState.street,
                     onValueChange = viewModel::onStreetChange,
                     placeholder = stringResource(R.string.enter_street),
-                    singleLine = false
+                    singleLine = false,
+                    minLines = 3
                 )
 
                 Row(

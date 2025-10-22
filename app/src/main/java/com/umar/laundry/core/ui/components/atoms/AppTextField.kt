@@ -36,6 +36,7 @@ fun AppTextField(
     size: FieldSize = FieldSize.Medium,
     enabled: Boolean = true,
     singleLine: Boolean = true,
+    minLines: Int = 1,
 ) {
     var passwordVisible by remember { mutableStateOf(false) }
     var isFocused by remember { mutableStateOf(false) }
@@ -56,6 +57,7 @@ fun AppTextField(
             visualTransformation = if (isPassword && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None,
             enabled = enabled,
             singleLine = singleLine,
+            minLines = minLines,
             decorationBox = { innerTextField ->
                 Row(
                     verticalAlignment = if (!singleLine) Alignment.Top else Alignment.CenterVertically,
