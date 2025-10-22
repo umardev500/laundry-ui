@@ -9,7 +9,7 @@ import cafe.adriel.voyager.transitions.SlideTransition
 @OptIn(ExperimentalVoyagerApi::class)
 @Composable
 fun App() {
-    val initialScreen = Routes.addressList()
+    val initialScreen = Routes.userList()
 
     Navigator(
         screen = initialScreen, disposeBehavior = NavigatorDisposeBehavior(disposeSteps = true)

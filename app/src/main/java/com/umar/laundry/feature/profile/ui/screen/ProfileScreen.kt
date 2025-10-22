@@ -9,7 +9,7 @@ class ProfileScreen : Screen {
     @Composable
     override fun Content() {
         // In a real app, you would get this role from a ViewModel or user state
-        val userRole = UserRole.CUSTOMER
+        val userRole = UserRole.ADMIN
 
         ProfileContent(userRole = userRole)
     }

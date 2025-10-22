@@ -6,10 +6,13 @@ import com.umar.laundry.feature.address.ui.screen.AddEditAddressScreen
 import com.umar.laundry.feature.address.ui.screen.AddressListScreen
 import com.umar.laundry.feature.auth.ui.screen.Login
 import com.umar.laundry.feature.profile.ui.screen.ProfileScreen
+import com.umar.laundry.feature.user_management.ui.UserListScreen
 
 object Routes {
     fun login(): Screen = Login()
     fun profile(): Screen = ProfileScreen()
     fun addressList(): Screen = AddressListScreen()
     fun addEditAddress(address: Address? = null): Screen = AddEditAddressScreen(address)
+
+    fun userList(): Screen = UserListScreen()
 }

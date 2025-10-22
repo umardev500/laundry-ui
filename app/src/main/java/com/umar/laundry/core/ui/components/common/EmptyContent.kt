@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -24,6 +25,7 @@ fun EmptyContent(
     painter: Painter,
     title: String,
     subtitle: String,
+    iconSize: Dp = 120.dp,
 ) {
     Column(
         modifier = modifier.fillMaxSize().padding(16.dp),
@@ -33,7 +35,7 @@ fun EmptyContent(
         Icon(
             painter = painter,
             contentDescription = null,
-            modifier = Modifier.size(120.dp),
+            modifier = Modifier.size(iconSize),
             tint = MaterialTheme.colorScheme.primary.copy(alpha = 0.5f)
         )
         Spacer(modifier = Modifier.height(24.dp))
