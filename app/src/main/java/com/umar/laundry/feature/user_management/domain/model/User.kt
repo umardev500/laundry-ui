@@ -8,4 +8,7 @@ data class User(
     val email: String,
     val status: UserStatus,
     val roles: List<String>
-)
+) {
+    val avatar: String
+        get() = "https://api.dicebear.com/9.x/open-peeps/png?seed=$id"
+}

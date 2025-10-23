@@ -23,7 +23,7 @@ fun ProfileHeader(
     Row(
         modifier = modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
     ) {
-        UserAvatar(avatarRes = R.drawable.avatar2, isOnline = true, size = 72.dp)
+        UserAvatar(avatar = R.drawable.avatar2, isOnline = true, size = 72.dp)
         Spacer(modifier = Modifier.width(16.dp))
         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
             Text(

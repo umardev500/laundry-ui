@@ -1,7 +1,5 @@
 package com.umar.laundry.core.ui.components.atoms
 
-import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
@@ -13,13 +11,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import coil3.compose.AsyncImage
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 
 @Composable
 fun UserAvatar(
-    @DrawableRes avatarRes: Int,
+    avatar: Any,
     isOnline: Boolean,
     modifier: Modifier = Modifier,
     size: Dp = 72.dp,
@@ -27,8 +28,11 @@ fun UserAvatar(
     Box(
         modifier = modifier.size(size)
     ) {
-        Image(
-            painter = painterResource(id = avatarRes),
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(avatar)
+                .crossfade(true)
+                .build(),
             contentDescription = "Profile Picture",
             modifier = Modifier
                 .size(size)

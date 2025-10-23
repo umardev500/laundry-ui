@@ -78,7 +78,7 @@ fun UserListItem(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             UserAvatar(
-                avatarRes = R.drawable.avatar,
+                avatar = user.avatar,
                 isOnline = user.status == UserStatus.ACTIVE,
                 size = 56.dp
             )
@@ -115,7 +115,7 @@ fun UserListItem(
                 IconButton(
                     onClick = { showBottomSheet = true },
                     modifier = Modifier
-                        .size(24.dp),
+                        .size(20.dp),
                 ) {
                     Icon(
                         painter = painterResource(id = R.drawable.ic_more_vert),
