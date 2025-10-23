@@ -60,14 +60,14 @@ fun UserList(
                 EmptyContent(
                     painter = painterResource(id = R.drawable.ic_group_outlined),
                     title = "No Users Found",
-                    subtitle = if(query.isBlank()) "There are no users to display at the moment." else "Your search for \"${query}\" did not match any users.",
-                    iconSize = 90.dp
+                    subtitle = if (query.isBlank()) "There are no users to display at the moment." else "Your search for \"${query}\" did not match any users.",
+                    iconSize = 52.dp
                 )
             }
         }
 
         // 👥 User items
-        items(users) { user ->
+        items(users, key = { it.id }) { user ->
             UserListItem(
                 user = user,
                 onClick = { onItemClick(user) },
